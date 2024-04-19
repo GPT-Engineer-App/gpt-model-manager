@@ -28,8 +28,8 @@ const Index = () => {
   };
 
   return (
-    <Container maxW="container.xl" style={{ perspective: "1000px" }}>
-      <VStack spacing={8} py={10} style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
+    <Container maxW="container.xl">
+      <VStack spacing={8} py={10} align="stretch">
         <Heading as="h1" size="2xl">
           GPT Model Manager
         </Heading>
