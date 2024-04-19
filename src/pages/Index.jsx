@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Container, Flex, Heading, Input, Stack, Switch, Text, useToast, VStack, useColorMode } from "@chakra-ui/react";
+import GalleryLayout from '../components/GalleryLayout';
 import { FaGithub, FaPlus, FaSearch } from "react-icons/fa";
 
 const Index = () => {
@@ -45,6 +46,7 @@ const Index = () => {
           </Flex>
         </div>
 
+        <GalleryLayout />
         <Stack direction={{ base: "column", md: "row" }} spacing={4} align="center">
           <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={handleModelSubmit}>
             Submit New Model
