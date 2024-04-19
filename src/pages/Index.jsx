@@ -26,19 +26,21 @@ const Index = () => {
   };
 
   return (
-    <Container maxW="container.xl">
-      <VStack spacing={8} py={10}>
+    <Container maxW="container.xl" style={{ perspective: "1000px" }}>
+      <VStack spacing={8} py={10} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
         <Heading as="h1" size="2xl">
           GPT Model Manager
         </Heading>
         <Text>Welcome to the GPT Model Manager. Submit, review, and compare custom GPT models.</Text>
 
-        <Flex w="full" gap={2}>
-          <Input placeholder="Search GPT models..." />
-          <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={handleSearch}>
-            Search
-          </Button>
-        </Flex>
+        <div style={{ transform: "rotateY(0deg)", transition: "transform 0.5s, box-shadow 0.5s", cursor: "pointer", background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)), url("/path-to-background.jpg")', backgroundSize: "cover", boxShadow: "none" }} onMouseEnter={(e) => (e.currentTarget.style.transform = "rotateY(10deg)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "rotateY(0deg)")}>
+          <Flex w="full" gap={2}>
+            <Input placeholder="Search GPT models..." />
+            <Button leftIcon={<FaSearch />} colorScheme="red" onClick={handleSearch}>
+              Search
+            </Button>
+          </Flex>
+        </div>
 
         <Stack direction={{ base: "column", md: "row" }} spacing={4} align="center">
           <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={handleModelSubmit}>
