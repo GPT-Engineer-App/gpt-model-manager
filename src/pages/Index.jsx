@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Box, Button, Container, Flex, Heading, Input, Stack, Switch, Text, useToast, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Heading, Input, Stack, Switch, Text, useToast, VStack, useColorMode } from "@chakra-ui/react";
 import { FaGithub, FaPlus, FaSearch } from "react-icons/fa";
 
 const Index = () => {
   const toast = useToast();
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  const { colorMode, toggleColorMode } = useColorMode();
+  const toggleDarkMode = () => toggleColorMode();
 
   const handleModelSubmit = () => {
     toast({
@@ -29,7 +29,7 @@ const Index = () => {
 
   return (
     <Container maxW="container.xl" style={{ perspective: "1000px" }}>
-      <VStack spacing={8} py={10} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+      <VStack spacing={8} py={10} style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
         <Heading as="h1" size="2xl">
           GPT Model Manager
         </Heading>
@@ -38,7 +38,7 @@ const Index = () => {
         <div style={{ transform: "rotateY(0deg)", transition: "transform 0.5s, box-shadow 0.5s", cursor: "pointer", background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)), url("/path-to-background.jpg")', backgroundSize: "cover", boxShadow: "none", boxReflect: "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(rgba(255, 255, 255, 0.1)))" }} onMouseEnter={(e) => (e.currentTarget.style.transform = "rotateY(10deg)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "rotateY(0deg)")}>
           <Flex w="full" gap={2}>
             <Input placeholder="Search GPT models..." />
-            <Switch id="dark-mode-switch" size="md" colorScheme="red" mr={4} onChange={toggleDarkMode} />
+            <Switch id="dark-mode-switch" size="md" colorScheme="red" mr={4} isChecked={colorMode === "dark"} onChange={toggleDarkMode} />
             <Button leftIcon={<FaSearch />} colorScheme="red" onClick={handleSearch}>
               Search
             </Button>
